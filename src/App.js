@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom'
-import Navbar from '../src/components/Layout/Navbar'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Navbar from './components/Layout/Navbar'
+import SignIn from './components/Auth/SignIn'
 import './App.css';
 
 class App extends Component {
@@ -9,6 +10,10 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Navbar />
+          <Switch>
+            <Route exact path='/signIn' Component={SignIn} /> 
+            <Route path='/signUp' Component={SignUp} />
+          </Switch>
         </div>
       </BrowserRouter>
     )
