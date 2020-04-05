@@ -10,7 +10,7 @@ class SignIn extends Component  {
                     <div className="alert alert-error">
                         {/* <a className="close" data-dismiss="alert" href="#">×</a>Incorrect Username or Password! */}
                     </div>
-                    <form method="POST" action="" accept-charset="UTF-8">
+                    <form method="POST" action="" acceptCharset="UTF-8">
                         <input type="text" id="username" className="span4" name="username" placeholder="Username" />
                         <input type="password" id="password" className="span4" name="password" placeholder="Password" />
                         <label className="checkbox">
