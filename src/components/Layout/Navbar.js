@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import SignInLinks from './SignInLinks'
 import SignOutLinks from './SignOutLinks'
+import Logo from '../../logo.png'
 
 const Navbar = () => {
     const imageWidth = {
@@ -12,7 +13,7 @@ const Navbar = () => {
             <div className="container">
                 {/* <!-- Brand --> */}
                 <NavLink className="navbar-brand" to="/">
-                    <img src="http://velikorodnov.com/html/autotrader/images/logo.png" alt="Logo" style={imageWidth} />
+                    <img src={Logo} alt="Logo" style={imageWidth} />
                 </NavLink>
                 {/* <!-- Toggler/collapsibe Button --> */}
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">

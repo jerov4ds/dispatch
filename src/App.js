@@ -11,9 +11,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <Navbar />
+          <div className="mt-4"></div>
           <Switch>
             <Route exact path='/signIn' component={SignIn} /> 
-            <Route path='/signUp' component={SignIn} />
+            <Route path='/signUp' component={SignUp} />
           </Switch>
         </div>
       </Router>
