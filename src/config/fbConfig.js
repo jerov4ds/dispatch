@@ -15,4 +15,6 @@ var firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig);
 
+  firebase.firestore.setLogLevel('debug');
+
   export default firebase;

@@ -1,6 +1,6 @@
 import { firestore } from "firebase"
 
-export const signIn = (credentials) => {
+export const SignInUser = (credentials) => {
     return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
 
@@ -15,7 +15,7 @@ export const signIn = (credentials) => {
     }
 }
 
-export const signUp = (newUser) => {
+export const SignUpUser = (newUser) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firebase = getFirebase();
         const firestore = getFirestore();
@@ -38,6 +38,17 @@ export const signUp = (newUser) => {
             dispatch({ type: 'SIGNUP_SUCCESS'});
         }).catch(err => {
             dispatch({ type: 'SIGNUP_ERROR', err});
+            console.log(err.message);
+        })
+    }
+}
+
+export const SignOut = () => {
+    return (dispatch, getState, { getFirebase }) => {
+        const firebase = getFirebase();
+
+        firebase.auth().signOut().then(() => {
+            dispatch({type: 'SIGNOUT_SUCCESS'});
         })
     }
 }
