@@ -32,12 +32,30 @@ export const SignUpUser = (newUser) => {
                 role: newUser.role,
                 image: newUser.image,
                 address: newUser.address,
-                
+                createdAt: new Date()
             })
         }).then(() => {
             dispatch({ type: 'SIGNUP_SUCCESS'});
         }).catch(err => {
             dispatch({ type: 'SIGNUP_ERROR', err});
+            console.log(err.message);
+        })
+    }
+}
+
+export const UpdateProfile = (profile) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+        const firebase = getFirebase();
+        const firestore = getFirestore();
+        const authId = getState().firebase.auth.uid;
+
+        firestore.collection('users').doc(authId).set({
+            ...profile,
+            upDatedAt: new Date()
+        }).then(() => {
+            dispatch({ type: 'PROFILE_UPDATE_SUCCESS'});
+        }).catch(err => {
+            dispatch({ type: 'PROFILE_UPDATE_ERROR', err});
             console.log(err.message);
         })
     }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Landing from './components/Dashboard/Landing'
-import Navbar from './components/Layout/Navbar'
+import SendItem from './components/Dashboard/SendItem'
+import Profile from './components/Dashboard/Profile'
 import SignIn from './components/Auth/SignIn'
 import SignUp from './components/Auth/SignUp'
 import Alert from './components/Layout/Alert'
@@ -12,13 +13,13 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          {/* <Navbar /> */}
           <Alert />
-          <div className="mt-4"></div>
           <Switch>
-            <Route path='/' component={Landing} />
-            <Route exact path='/signIn' component={SignIn} /> 
+            <Route exact path='/' component={Landing} />
+            <Route path='/signIn' component={SignIn} /> 
             <Route path='/signUp' component={SignUp} />
+            <Route path='/profile' component={Profile} />
+            <Route path='/sendItem' component={SendItem} />
           </Switch>
         </div>
       </Router>

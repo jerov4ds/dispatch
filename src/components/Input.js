@@ -13,6 +13,7 @@ export const Input = (props) => {
             <input
                 className={inputClassName}
                 type={props.type || 'text' }
+                value={props.value || ''}
                 placeholder= {props.placeholder}
                 onChange = {props.onChange}
             />
@@ -37,9 +38,11 @@ export const Select = (props) => {
             <select
                 className={inputClassName}
                 onChange = {props.onChange}
+                id={props.id}
             >
                 {options.map(function(name, index){
-                    return <option key={ index } value={name.value}>{name.option}</option>;
+                    if(props.selected && props.selected === name.value) return <option key={ index } value={name.value} selected>{name.option}</option>;
+                    else return <option key={ index } value={name.value} >{name.option}</option>;
                 })}
             </select>
             {props.error && (
@@ -63,6 +66,7 @@ export const Textarea = (props) => {
                 className= {inputClassName}
                 onChange = {props.onChange}
                 rows={props.rows? props.rows : '2'}
+                value= {props.value}
             >
             </textarea>
             {props.error && (

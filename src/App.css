@@ -157,3 +157,12 @@
 input:invalid {
   border: 2px solid red;
 }
+
+.alert{
+  z-index: 1000000;
+  text-align: center;
+}
+
+.pt-6 {
+  padding-top: 80px
+}

@@ -9,35 +9,32 @@ const Navbar = (props) => {
     const imageWidth = {
         width: '120px'
     }
-    const auth = props.auth;
-    if(auth.uid){
-        return (
-            <nav className="navbar navbar-expand-sm bg-light fixed-top navbar-light ">
-                <div className="container">
-                    {/* <!-- Brand --> */}
-                    <NavLink className="navbar-brand" to="/">
-                        <img src={Logo} alt="Logo" style={imageWidth} />
-                    </NavLink>
-                    {/* <!-- Toggler/collapsibe Button --> */}
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    {/* <!-- Navbar links --> */}
-                    <div className="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-                        <SignInLinks />
-                        <SignOutLinks />
-                    </div>
+    const { auth, profile } = props;
+    const links = auth.uid ? <SignInLinks profile={profile} /> : <SignOutLinks />;
+    return (
+        <nav className="navbar navbar-expand-sm bg-light fixed-top navbar-light ">
+            <div className="container">
+                {/* <!-- Brand --> */}
+                <NavLink className="navbar-brand" to="/">
+                    <img src={Logo} alt="Logo" style={imageWidth} />
+                </NavLink>
+                {/* <!-- Toggler/collapsibe Button --> */}
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                {/* <!-- Navbar links --> */}
+                <div className="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                    {links}
                 </div>
-            </nav>
-        )
-    } else {
-        return null;
-    }
+            </div>
+        </nav>
+    )
 }
 
 const mapStateToProps = (state) => {
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        profile: state.firebase.profile
     }
 }
 
