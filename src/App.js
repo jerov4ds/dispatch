@@ -4,7 +4,7 @@ import Landing from './components/Dashboard/Landing'
 import SendItem from './components/Dashboard/SendItem'
 import Profile from './components/Dashboard/Profile'
 import SignIn from './components/Auth/SignIn'
-import SignUp from './components/Auth/SignUp'
+import SignUp from './components/Auth/signUp'
 import Alert from './components/Layout/Alert'
 import './App.css';
 

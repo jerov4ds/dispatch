@@ -10,6 +10,7 @@ export const SignInUser = (credentials) => {
         ).then(() => {
             dispatch({type: 'Login_SUCCESS'});
         }).catch((err) => {
+            console.log(err);
             dispatch({ type: 'LOGIN_ERROR', err});
         })
     }

@@ -13,7 +13,7 @@ export const Input = (props) => {
             <input
                 className={inputClassName}
                 type={props.type || 'text' }
-                value={props.value || ''}
+                value={props.value}
                 placeholder= {props.placeholder}
                 onChange = {props.onChange}
             />
